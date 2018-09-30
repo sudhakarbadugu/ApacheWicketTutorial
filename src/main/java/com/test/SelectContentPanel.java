@@ -1,4 +1,4 @@
-package aspire;
+package com.test;
 
 import org.apache.wicket.Component;
 import org.apache.wicket.MarkupContainer;

@@ -1,4 +1,4 @@
-package aspire;
+package com.test;
 
 import org.apache.wicket.ajax.AjaxRequestTarget;
 import org.apache.wicket.extensions.ajax.markup.html.modal.ModalWindow;

@@ -1,4 +1,4 @@
-package aspire.validators;
+package com.test.validators;
 
 import org.apache.wicket.validation.CompoundValidator;
 import org.apache.wicket.validation.validator.StringValidator;
