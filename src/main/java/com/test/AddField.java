@@ -26,14 +26,7 @@ public class AddField extends WebPage {
       //  Form<?> form = new Form("regi");
         WebMarkupContainer container = new WebMarkupContainer("hidebutton");
         container.setOutputMarkupPlaceholderTag(true);
-        
-        /*Button button = new Button("submitbutton") {
-            @Override
-            public void onSubmit() {
-                System.out.println("submit");
-              container.setVisible(false);
-            }
-        };*/
+
         container.add(new AjaxLink("submitbutton") {
 
             @Override
