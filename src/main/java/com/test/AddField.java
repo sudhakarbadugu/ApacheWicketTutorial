@@ -5,6 +5,7 @@ import org.apache.wicket.MarkupContainer;
 import org.apache.wicket.PageReference;
 import org.apache.wicket.ajax.AjaxRequestTarget;
 import org.apache.wicket.ajax.markup.html.AjaxLink;
+import org.apache.wicket.ajax.markup.html.form.AjaxButton;
 import org.apache.wicket.extensions.ajax.markup.html.modal.ModalWindow;
 import org.apache.wicket.markup.html.WebMarkupContainer;
 import org.apache.wicket.markup.html.WebPage;
@@ -23,11 +24,12 @@ public class AddField extends WebPage {
 
     public AddField(final PageReference pageRef, final ModalWindow modal) {
         setOutputMarkupId(true);
-      //  Form<?> form = new Form("regi");
+        Form<?> form = new Form("regi");
         WebMarkupContainer container = new WebMarkupContainer("hidebutton");
         container.setOutputMarkupPlaceholderTag(true);
-
-        container.add(new AjaxLink("submitbutton") {
+        
+        
+        form.add(new AjaxButton("submitbutton") {
 
             @Override
             public MarkupContainer setDefaultModel(IModel model) {
@@ -36,13 +38,13 @@ public class AddField extends WebPage {
             }
 
             @Override
-            public void onClick(AjaxRequestTarget target) {
+            public void onSubmit(AjaxRequestTarget target) {
                 System.out.println("submit");
                 container.setVisible(false);
                 target.add(container);
             }
         });
-        container.add(new AjaxLink("cancelbutton") {
+        form.add(new AjaxButton("cancelbutton") {
 
             @Override
             public MarkupContainer setDefaultModel(IModel model) {
@@ -51,11 +53,12 @@ public class AddField extends WebPage {
             }
 
             @Override
-            public void onClick(AjaxRequestTarget target) {
+            public void onSubmit(AjaxRequestTarget target) {
                 modal.close(target);
             }
         });
         add(container);
+        container.add(form);
         
     }
 

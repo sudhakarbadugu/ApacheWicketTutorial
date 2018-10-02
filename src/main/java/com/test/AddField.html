@@ -4,20 +4,7 @@
 <meta charset="ISO-8859-1">
 <title>Insert title here</title>
 <style>
-.button {
-    background-color: buttonface;
-    border: 1px solid black;
-    color: black;
-    padding: 5px 10px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-    margin: 4px 2px;
-    cursor: pointer;
-    border-radius:4px;
-    
-}
+
 .formPanel {padding-left =5px;
 	
 }
@@ -41,6 +28,7 @@ th {
 </head>
 <body>
 		<div class="formPanel" wicket:id="hidebutton">
+		<form wicket:id="regi">
 				<div class="formPanel-field">
 					<label class="abc">First Name: </label><input
 						style="margin-left: 30px; margin-top: 5px;" type="text"
@@ -57,11 +45,10 @@ th {
 					style="margin-left: 16px; margin-top: 5px;" type="Date" name="Dob">
 				<BR>
 				<div style="margin-top: 10px; margin-left: 27%;">
-					<a wicket:id="submitbutton" class="button">Confirm</a>
-					<a wicket:id="cancelbutton" class="button">Cancel</a>
-					<!-- <input style="margin-right: 5px" type="button" value="register" wicket:id="submitbutton">
-					<input type="button" value="Cancel" wicket:id="cancelbutton"> -->
+					<input style="margin-right: 5px" type="button" value="register" wicket:id="submitbutton">
+					<input type="button" value="Cancel" wicket:id="cancelbutton">
 				</div>
+				</form>
 		</div>
 		<div>
 			<table>
