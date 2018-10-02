@@ -1,28 +1,23 @@
 package com.test;
 
-import org.apache.wicket.Component;
 import org.apache.wicket.MarkupContainer;
-import org.apache.wicket.PageReference;
 import org.apache.wicket.ajax.AjaxRequestTarget;
-import org.apache.wicket.ajax.markup.html.AjaxLink;
 import org.apache.wicket.ajax.markup.html.form.AjaxButton;
 import org.apache.wicket.extensions.ajax.markup.html.modal.ModalWindow;
 import org.apache.wicket.markup.html.WebMarkupContainer;
-import org.apache.wicket.markup.html.WebPage;
-import org.apache.wicket.markup.html.basic.Label;
-import org.apache.wicket.markup.html.form.Button;
 import org.apache.wicket.markup.html.form.Form;
 import org.apache.wicket.markup.html.panel.Panel;
 import org.apache.wicket.model.IModel;
 
-public class AddField extends WebPage {
+public class AddField extends Panel {
 
     /**
      * 
      */
     private static final long serialVersionUID = 1L;
 
-    public AddField(final PageReference pageRef, final ModalWindow modal) {
+    public AddField(String id, final ModalWindow modal) {
+        super(id);
         setOutputMarkupId(true);
         Form<?> form = new Form("regi");
         WebMarkupContainer container = new WebMarkupContainer("hidebutton");
@@ -55,10 +50,19 @@ public class AddField extends WebPage {
             @Override
             public void onSubmit(AjaxRequestTarget target) {
                 modal.close(target);
+                
             }
         });
         add(container);
         container.add(form);
+        
+        modal.setCloseButtonCallback(target -> {
+            System.out.println("closebutton call back");
+            container.setVisible(true);
+            target.add(container);
+            return true;
+        });
+        
         
     }
 

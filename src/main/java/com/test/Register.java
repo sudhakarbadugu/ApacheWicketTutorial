@@ -3,21 +3,14 @@ package com.test;
 import java.util.Arrays;
 import java.util.List;
 
-import org.apache.wicket.MarkupContainer;
-import org.apache.wicket.ajax.AjaxEventBehavior;
 import org.apache.wicket.ajax.AjaxRequestTarget;
 import org.apache.wicket.ajax.form.AjaxFormComponentUpdatingBehavior;
 import org.apache.wicket.ajax.form.OnChangeAjaxBehavior;
-import org.apache.wicket.ajax.markup.html.AjaxLink;
 import org.apache.wicket.extensions.ajax.markup.html.modal.ModalWindow;
 import org.apache.wicket.markup.html.WebPage;
-import org.apache.wicket.markup.html.basic.Label;
 import org.apache.wicket.markup.html.form.DropDownChoice;
-import org.apache.wicket.markup.html.form.Form;
-import org.apache.wicket.markup.html.panel.Panel;
 import org.apache.wicket.model.IModel;
 import org.apache.wicket.model.Model;
-import org.apache.wicket.model.PropertyModel;
 import org.apache.wicket.request.mapper.parameter.PageParameters;
 
 public class Register extends WebPage {
@@ -44,7 +37,8 @@ public class Register extends WebPage {
 		};
 		add(listSites);
 	ModalWindow modalWindow= new ModalWindow("modalwindow");
-	modalWindow.setPageCreator(() -> new AddField(Register.this.getPageReference(), modalWindow));
+	//modalWindow.setPageCreator(() -> new AddField(Register.this.getPageReference(), modalWindow));
+	modalWindow.setContent(new AddField(modalWindow.getContentId(),modalWindow));
 	//Label label= new Label(modalWindow.getContentId(),"modal window");
 	//modalWindow.setContent(new AddField(modalWindow.getContentId()));
 	modalWindow.setTitle("Add a new Rule");
