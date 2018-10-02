@@ -44,8 +44,9 @@ public class Register extends WebPage {
 		};
 		add(listSites);
 	ModalWindow modalWindow= new ModalWindow("modalwindow");
+	modalWindow.setPageCreator(() -> new AddField(Register.this.getPageReference(), modalWindow));
 	//Label label= new Label(modalWindow.getContentId(),"modal window");
-	modalWindow.setContent(new AddField(modalWindow.getContentId()));
+	//modalWindow.setContent(new AddField(modalWindow.getContentId()));
 	modalWindow.setTitle("Add a new Rule");
 	add(modalWindow);
 
