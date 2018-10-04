@@ -28,12 +28,13 @@ th {
 </head>
 <body>
 <wicket:panel>
+        <div wicket:id="feedback" style="color: red"></div>
 		<div class="formPanel" wicket:id="hidebutton">
 		<form wicket:id="regi">
 				<div class="formPanel-field">
 					<label class="abc">First Name: </label><input
 						style="margin-left: 30px; margin-top: 5px;" type="text"
-						name="firstname"> <BR>
+						name="firstname" wicket:id="firstName"> <BR>
 				</div>
 				Last Name: <input style="margin-left: 32px; margin-top: 5px;"
 					type="text" name="lastname"> <BR> User Name: <input

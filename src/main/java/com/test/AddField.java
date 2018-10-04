@@ -6,6 +6,8 @@ import org.apache.wicket.ajax.markup.html.form.AjaxButton;
 import org.apache.wicket.extensions.ajax.markup.html.modal.ModalWindow;
 import org.apache.wicket.markup.html.WebMarkupContainer;
 import org.apache.wicket.markup.html.form.Form;
+import org.apache.wicket.markup.html.form.RequiredTextField;
+import org.apache.wicket.markup.html.panel.FeedbackPanel;
 import org.apache.wicket.markup.html.panel.Panel;
 import org.apache.wicket.model.IModel;
 
@@ -20,10 +22,13 @@ public class AddField extends Panel {
         super(id);
         setOutputMarkupId(true);
         Form<?> form = new Form("regi");
+        form.add( new RequiredTextField("firstName"));
         WebMarkupContainer container = new WebMarkupContainer("hidebutton");
         container.setOutputMarkupPlaceholderTag(true);
         
-        
+        FeedbackPanel feedbackPanel = new FeedbackPanel("feedback");
+        feedbackPanel.setOutputMarkupId(true);
+        add(feedbackPanel);
         form.add(new AjaxButton("submitbutton") {
 
             @Override
@@ -37,6 +42,10 @@ public class AddField extends Panel {
                 System.out.println("submit");
                 container.setVisible(false);
                 target.add(container);
+            }
+            @Override
+            protected void onError(AjaxRequestTarget target) {
+                target.add(feedbackPanel);
             }
         });
         form.add(new AjaxButton("cancelbutton") {
