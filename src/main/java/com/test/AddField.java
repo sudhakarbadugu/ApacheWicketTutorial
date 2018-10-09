@@ -29,7 +29,6 @@ public class AddField extends Panel {
         super(id);
         setOutputMarkupId(true);
         Form<?> form = new Form("regi");
-        Form<?> emptyForm = new Form("emptyForm");
         form.add( new RequiredTextField("firstName"));
         WebMarkupContainer container = new WebMarkupContainer("hidebutton");
         container.setOutputMarkupPlaceholderTag(true);
@@ -57,10 +56,8 @@ public class AddField extends Panel {
                 target.add(feedbackPanel);
             }
             
-
-            
         });
-        emptyForm.add(new AjaxButton("cancelbutton") {
+        AjaxButton cancel = new AjaxButton("cancelbutton") {
 
             @Override
             public MarkupContainer setDefaultModel(IModel model) {
@@ -68,23 +65,15 @@ public class AddField extends Panel {
                 return null;
                 
             }
-            
-            
-            
-            @Override
-            protected void onError(AjaxRequestTarget target) {
-               // target.add(feedbackPanel.setVisible(false));
-                target.add(form);
-                modal.close(target);
-            }
             @Override
             public void onSubmit(AjaxRequestTarget target) {
                 modal.close(target);                
             }
-        });
+        };
+        cancel.setDefaultFormProcessing(false);
+        form.add(cancel);
         add(container);
         container.add(form);
-        container.add(emptyForm);
         
         modal.setCloseButtonCallback(target -> {
             System.out.println("closebutton call back");
