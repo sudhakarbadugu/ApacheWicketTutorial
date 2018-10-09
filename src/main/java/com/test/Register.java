@@ -37,6 +37,7 @@ public class Register extends WebPage {
 		};
 		add(listSites);
 	ModalWindow modalWindow= new ModalWindow("modalwindow");
+	    
 	//modalWindow.setPageCreator(() -> new AddField(Register.this.getPageReference(), modalWindow));
 	modalWindow.setContent(new AddField(modalWindow.getContentId(),modalWindow));
 	//Label label= new Label(modalWindow.getContentId(),"modal window");

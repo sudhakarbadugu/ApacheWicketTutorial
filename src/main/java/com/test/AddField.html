@@ -46,11 +46,13 @@ th {
 				<input type="radio">Female</input> <BR> Date of Birth: <input
 					style="margin-left: 16px; margin-top: 5px;" type="Date" name="Dob">
 				<BR>
-				<div style="margin-top: 10px; margin-left: 27%;">
-					<input style="margin-right: 5px" type="button" value="register" wicket:id="submitbutton">
-					<input type="button" value="Cancel" wicket:id="cancelbutton">
-				</div>
+                <div style="margin-top: 10px; margin-left: 27%;">
+                    <input style="margin-right: 5px" type="button" value="register" wicket:id="submitbutton">
+                </div>
 				</form>
+                <form wicket:id="emptyForm">
+                    <input type="button" value="Cancel" wicket:id="cancelbutton">
+                </form>
 		</div>
 		<div>
 			<table>
